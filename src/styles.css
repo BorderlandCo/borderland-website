@@ -1,0 +1,1826 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #1a1a1a;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background: rgba(26, 26, 26, 0.9);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2rem;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.cta-button {
+    background: #ff5722;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+.services {
+    padding: 50px 20px;
+    margin-bottom: 140px;
+    /* Увеличиваем нижний отступ */
+}
+
+.services h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.service-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.service {
+    background: #252525;
+    padding: 30px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+.service i {
+    font-size: 3rem;
+    color: #ff5722;
+    margin-bottom: 15px;
+}
+
+footer {
+    padding: 20px;
+    background: #111;
+    margin-top: 50px;
+}
+
+.about {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 10%;
+    background: #1a1a1a;
+    color: white;
+    min-height: 100vh;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.about.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-content {
+    max-width: 50%;
+}
+
+.about h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.about-visual {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.animated-box {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #ff5722, #ff9800);
+    border-radius: 20px;
+    box-shadow: 0px 10px 30px rgba(255, 87, 34, 0.3);
+    animation: float 3s infinite ease-in-out alternate;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+
+/* Делаем секцию Contact больше */
+.contact {
+    min-height: 100vh;
+    /* Теперь Contact будет занимать весь экран */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px;
+}
+
+/* Заголовок и текст по центру */
+.contact h2,
+.contact p {
+    text-align: center;
+}
+
+/* Отступ внизу, чтобы был запас при прокрутке */
+footer {
+    padding-bottom: 100px;
+}
+
+/* Контейнер для всплывающего окна */
+.popup {
+    position: absolute;
+    left: 50%;
+    bottom: 110%;
+    transform: translateX(-50%) scale(0.9);
+    width: 280px;
+    background: rgba(30, 30, 30, 0.95);
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 10;
+}
+
+/* Картинка внутри всплывающего окна */
+.popup img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Появление окна при наведении */
+.service {
+    position: relative;
+    /* Чтобы всплывающее окно позиционировалось относительно */
+}
+
+.service:hover .popup {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) scale(1);
+}
+
+.navbar {
+    transition: transform 0.4s ease-in-out;
+}
+
+.navbar.hidden {
+    transform: translateY(-100%);
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: auto;
+}
+
+.contact input,
+.contact textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+}
+
+.contact textarea {
+    height: 100px;
+    resize: none;
+}
+
+.contact button {
+    background: #ff5722;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .navbar nav {
+        display: none;
+        /* Скрываем навигацию, сделаем бургер */
+    }
+
+    .burger-menu {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .service-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.show-menu {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Анимация появления секций при скролле */
+section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Показываем бургер-меню только на мобильных устройствах */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: block;
+        /* Делаем бургер-меню видимым */
+    }
+}
+
+/* Основной стиль навигации */
+
+
+/* Для мобильных устройств */
+
+.about-visual {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.about.show .about-visual {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about {
+    position: relative;
+    background: rgba(26, 26, 26, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 100px 10%;
+}
+
+.animated-text {
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #ff5722, #ff9800);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textFloat 3s infinite ease-in-out;
+}
+
+@keyframes textFloat {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.typing-text {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    overflow: hidden;
+    border-right: 3px solid white;
+    /* Имитация мигающего курсора */
+    white-space: nowrap;
+    width: 0;
+    animation: typing 3s steps(30, end) forwards, blink 0.7s step-end infinite;
+}
+
+/* Анимация набора текста */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+/* Мигание курсора */
+@keyframes blink {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: white;
+    }
+}
+
+.typing-text {
+    display: inline-block;
+    white-space: nowrap;
+    /* Запрет переноса строк */
+    overflow: hidden;
+    border-right: 2px solid white;
+    /* Эффект каретки */
+    font-size: 3rem;
+    text-align: center;
+    min-width: 0;
+    /* Фикс багов с растягиванием */
+}
+
+#services-title {
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+#services-title.hidden {
+    opacity: 0;
+    transform: translateY(-10px);
+    /* Немного вверх */
+}
+
+@keyframes glitch {
+    0% {
+        text-shadow: 2px 2px red, -2px -2px blue;
+    }
+
+    25% {
+        text-shadow: -2px -2px red, 2px 2px blue;
+    }
+
+    50% {
+        text-shadow: 3px 3px lime, -3px -3px magenta;
+    }
+
+    75% {
+        text-shadow: -3px -3px lime, 3px 3px magenta;
+    }
+
+    100% {
+        text-shadow: 2px 2px red, -2px -2px blue;
+    }
+}
+
+.glitch:hover {
+    animation: glitch 0.2s infinite alternate;
+}
+
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-attachment: fixed;
+    /* Это и есть параллакс */
+}
+
+@keyframes fireGlow {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 87, 34, 0.8);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(255, 87, 34, 1);
+    }
+
+    100% {
+        box-shadow: 0 0 10px rgba(255, 87, 34, 0.8);
+    }
+}
+
+.cta-button:hover {
+    animation: fireGlow 0.8s infinite alternate;
+}
+
+.about h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    /* Белый текст */
+    text-shadow: 0 0 10px #ff9800, 0 0 20px #ff9800, 0 0 40px #ff5722;
+    /* Оранжевый неоновый эффект */
+}
+
+.navbar {
+    backdrop-filter: blur(10px);
+    background: rgba(26, 26, 26, 0.7);
+}
+
+.navbar a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 8px 15px;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+    transform: scale(1.1);
+    /* Немного увеличиваем кнопку */
+    color: #ff9800;
+    /* Меняем цвет на оранжевый */
+}
+
+.navbar a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 8px 15px;
+    display: inline-block;
+    /* Теперь работает transform */
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+    transform: scale(1.1);
+    /* Кнопка увеличивается на 10% */
+    color: #ff9800;
+    /* Меняем цвет */
+}
+
+
+/* Возвращаем цвет обратно плавно */
+.navbar a:not(:hover) {
+    transition: transform 0.3s ease-in-out, color 0.5s ease-in-out;
+}
+
+/* Затемненный фон */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* Контент всплывающего окна */
+.popup-content {
+    background: #1a1a1a;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255, 87, 34, 0.5);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Кнопка закрытия */
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.privacy-policy {
+    max-width: 800px;
+    margin: 120px auto 50px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    text-align: left;
+    line-height: 1.6;
+    opacity: 1;
+    /* Фиксируем видимость */
+    visibility: visible;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+}
+
+.privacy-policy h1 {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.privacy-policy h2 {
+    font-size: 1.8rem;
+    margin-top: 20px;
+    color: #ff5722;
+    /* Оранжевый заголовок */
+}
+
+.privacy-policy p,
+.privacy-policy ul {
+    font-size: 1.2rem;
+    color: #ddd;
+}
+
+.privacy-policy ul {
+    margin-left: 20px;
+}
+
+.privacy-policy a {
+    color: #ff5722;
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+.privacy-policy a:hover {
+    color: #ff9800;
+}
+
+/* Убираем анимацию исчезновения */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.legal-page {
+    max-width: 800px;
+    margin: 150px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    line-height: 1.6;
+}
+
+.legal-page h1 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.legal-page p {
+    font-size: 1.2rem;
+    color: #ddd;
+}
+
+.legal-page ul {
+    list-style: none;
+    padding: 0;
+}
+
+.legal-page ul li {
+    margin: 10px 0;
+}
+
+.legal-page ul li a {
+    color: #ff5722;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.legal-page ul li a:hover {
+    color: #ff9800;
+    text-decoration: underline;
+}
+
+.terms-page {
+    max-width: 800px;
+    margin: 150px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    text-align: left;
+    line-height: 1.6;
+}
+
+.terms-page h1 {
+    font-size: 2.5rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.terms-page h2 {
+    font-size: 1.8rem;
+    color: #ff5722;
+    margin-top: 20px;
+}
+
+.terms-page p,
+.terms-page ul {
+    font-size: 1.2rem;
+    color: #ddd;
+}
+
+.terms-page ul {
+    margin-left: 20px;
+}
+
+.terms-page a {
+    color: #ff5722;
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+.terms-page a:hover {
+    color: #ff9800;
+}
+
+.terms-page {
+    max-width: 800px;
+    margin: 150px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    text-align: left;
+    line-height: 1.6;
+    opacity: 1;
+    visibility: visible;
+}
+
+.terms-page h1 {
+    font-size: 2.5rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.terms-page h2 {
+    font-size: 1.8rem;
+    color: #ff5722;
+    margin-top: 20px;
+}
+
+.terms-page p,
+.terms-page ul {
+    font-size: 1.2rem;
+    color: #ddd;
+}
+
+.terms-page ul {
+    margin-left: 20px;
+}
+
+.terms-page a {
+    color: #ff5722;
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+.terms-page a:hover {
+    color: #ff9800;
+}
+
+.contact {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px;
+}
+
+.contact h2,
+.contact p {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    max-width: 500px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    color: #ddd;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: none;
+}
+
+button.cta-button {
+    background: #ff5722;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+}
+
+button.cta-button:hover {
+    background: #ff9800;
+}
+
+/* Общий контейнер для логотипов */
+/* Делаем весь блок сервисов ссылкой */
+.service-link {
+    text-decoration: none;
+    /* Убираем подчеркивание */
+    color: inherit;
+    /* Наследуем цвет текста */
+    display: block;
+    /* Делаем всю область кликабельной */
+}
+
+.service {
+    transition: transform 0.2s ease-in-out;
+}
+
+.service:hover {
+    transform: scale(1.05);
+    /* Эффект увеличения при наведении */
+}
+
+/* Стиль для фона и заголовка */
+/* Секция героя */
+/* Фоновая секция */
+.hero-app {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    background: url('/src/images/app-banner.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+/* Заголовок */
+.app-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+    opacity: 1;
+    /* Было 0, теперь сразу видно */
+    transform: translateY(0);
+    /* Убрано смещение */
+}
+
+/* Блок информации */
+.app-info {
+    max-width: 100%;
+    margin: 50px auto;
+    padding: 0 10vw;
+    /* Отступы слева и справа */
+    text-align: left;
+    /* Текст прижат к левому краю */
+    color: #f1f1f1;
+    /* Оставил цвет шрифта */
+    background: none !important;
+    /* Убираем фон */
+    border-radius: 0 !important;
+    /* Убираем закругления */
+    box-shadow: none !important;
+    /* Убираем тень */
+}
+
+
+/* Заголовки */
+.app-info {
+    max-width: 100%;
+    margin: 50px auto;
+    padding: 0 10vw;
+    /* Отступы слева и справа */
+    text-align: left;
+    color: #f1f1f1;
+}
+
+/* Градиентный стиль заголовков */
+.app-info h2,
+.app-info h3 {
+    font-size: 2.5rem;
+    /* Сделаем текст крупнее */
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff5722, #ff9800);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    margin-top: 80px;
+    /* Одинаковые отступы между секциями */
+    margin-bottom: 20px;
+}
+
+
+.app-info p {
+    margin-bottom: 40px;
+    /* Отступ между абзацами */
+    line-height: 1.6;
+}
+
+.app-info ul {
+    margin-bottom: 60px;
+    /* Отступ перед следующим разделом */
+}
+
+.app-info ul li {
+    margin-bottom: 15px;
+    /* Расстояние между элементами списка */
+}
+
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .hero-app {
+        height: 50vh;
+    }
+
+    .app-title {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .app-info {
+        padding: 20px;
+        margin: 30px 15px;
+    }
+}
+
+.hero-app {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-info {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.hero-app {
+    opacity: 1 !important;
+}
+
+.app-dev-page {
+    min-height: 200vh;
+    /* Увеличиваем длину только для этой страницы */
+}
+
+.app-additional-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 10vw;
+    gap: 50px;
+}
+
+.app-additional-content img {
+    max-width: 50%;
+    border-radius: 10px;
+    box-shadow: 0px 10px 30px rgba(255, 87, 34, 0.3);
+}
+
+.app-additional-text {
+    max-width: 45%;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+.app-additional-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 80px 10vw;
+}
+
+.app-additional-content img {
+    width: 50%;
+    max-width: 600px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+}
+
+.app-additional-text {
+    max-width: 50%;
+    text-align: left;
+}
+
+.app-additional-text h2 {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #ff784f, #ff9800);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.app-additional-text p {
+    font-size: 1.2rem;
+    color: #ddd;
+    margin-top: 15px;
+}
+
+#backgroundCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* Отправляем фон на задний план */
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #ff784f, #ff9800);
+    /* Идентичный градиент */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+/* Градиент для заголовков, идентичный app-development */
+.privacy-policy h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff7a18, #ffb700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.privacy-policy h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff7a18, #ffb700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+
+.terms-of-use {
+    color: white !important;
+    /* Принудительно белый цвет */
+    opacity: 1 !important;
+    /* Убираем скрытие */
+    visibility: visible !important;
+    display: block !important;
+}
+
+.privacy-policy h1 {
+    text-align: center;
+    width: 100%;
+}
+
+.terms-of-use h1 {
+    text-align: center !important;
+    /* Центрируем только главный заголовок */
+    display: block;
+    width: 100%;
+}
+
+.terms-of-use h1 {
+    text-align: center !important;
+    /* Центрируем только главный заголовок */
+    font-size: 2.8rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff7a18, #ffb700);
+    /* Градиент */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+    width: 100%;
+    margin-bottom: 40px;
+    /* Добавляем отступ */
+}
+
+.terms-of-use h2,
+.terms-of-use p,
+.terms-of-use ul {
+    text-align: left !important;
+    /* Все остальные элементы выравниваем влево */
+    max-width: 900px;
+    /* Ограничиваем ширину, чтобы текст не растягивался */
+    margin: 0 auto 20px;
+    /* Выравниваем по центру блока */
+    line-height: 1.6;
+}
+
+/* Градиентные заголовки */
+.terms-of-use h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff7a18, #ffb700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    margin-top: 40px;
+}
+
+.hero-app {
+    margin-top: 32px;
+    /* Отступ вниз, чтобы изображение не перекрывалось навигацией */
+}
+
+.app-dev-page {
+    background: linear-gradient(180deg, #1e1e1e 0%, #171717 100%);
+    /* Градиент, как на главной */
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#backgroundCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* Чтобы фон был позади контента */
+    opacity: 0.5;
+    /* Полупрозрачность (можно настроить) */
+}
+
+.contact-form-section {
+    max-width: 800px;
+    margin: 80px auto;
+    /* Отступ от верхнего блока */
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.contact-form-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #ff7a18, #ffb700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    gap: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+}
+
+textarea {
+    resize: none;
+    height: 120px;
+}
+
+.submit-btn {
+    background: linear-gradient(90deg, #ff7a18, #ffb700);
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(90deg, #ffb700, #ff7a18);
+}
+
+@media (max-width: 768px) {
+    .form-group {
+        flex-direction: column;
+    }
+}
+
+.contact-form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    max-width: 600px;
+    margin: 10px auto 0;
+    margin-top: 10px;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+footer {
+    padding: 20px;
+    background: #111;
+    position: relative;
+    bottom: 0;
+}
+.why-borderland {
+    text-align: center;
+    margin-bottom: 50px; /* Даем отступ перед следующей секцией */
+}
+
+.why-borderland-img {
+    max-width: 100%; /* Ограничиваем размер изображения */
+    height: auto;
+    display: block;
+    margin: 20px auto 0; /* Отступ сверху 20px */
+    border-radius: 12px; /* Закругляем углы */
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1); /* Добавляем тень */
+}
+.contact-form-section {
+    position: relative;
+    top: -150px; /* Поднимет форму вверх */
+}
+@keyframes neonGlow {
+    0% {
+        box-shadow: 0 0 10px #ff3c00, 0 0 20px #ff7a18;
+    }
+    50% {
+        box-shadow: 0 0 20px #ff3c00, 0 0 40px #ff7a18;
+    }
+    100% {
+        box-shadow: 0 0 10px #ff3c00, 0 0 20px #ff7a18;
+    }
+}
+
+.neon-line {
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #ff7a18, #ff3c00);
+    box-shadow: 0 0 15px #ff3c00, 0 0 30px #ff7a18;
+    margin: 20px 0;
+    animation: neonGlow 1.5s infinite alternate; /* Запускаем анимацию */
+}
+.neon-line {
+    width: 100%; /* Линия на всю ширину */
+    height: 4px; /* Толщина */
+    background: linear-gradient(90deg, #ff7a18, #ff3c00); /* Градиент неона */
+    box-shadow: 0 0 15px #ff3c00, 0 0 30px #ff7a18, 0 0 45px #ff3c00; /* Эффект свечения */
+    position: relative;
+    margin: 20px 0;
+}
+
+.neon-line {
+    margin-top: 45px; /* Отодвигаем вниз */
+}
+body.web-dev-page {
+    background: #1a1a1a;
+    color: white;
+    text-align: center;
+}
+
+.hero-web {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('/src/images/web-banner.jpg') no-repeat center center/cover;
+}
+
+.hero-web h1 {
+    font-size: 3rem;
+    color: white;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+.web-info {
+    padding: 50px 10vw;
+    text-align: left;
+}
+
+.contact-form-section {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+.web-page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.web-page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.gradient-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff7a18, #ffb700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+.web-info h2,
+.web-info h3,
+.web-additional-text h2 {
+    margin-bottom: 30px; /* Увеличивает расстояние между заголовком и текстом */
+}
+
+.web-info p,
+.web-info ul,
+.web-additional-text p {
+    margin-bottom: 25px; /* Увеличивает расстояние между абзацами */
+}
+.web-info ul {
+    margin-bottom: 40px; /* Добавляем дополнительный отступ */
+}
+
+.web-info ul li {
+    margin-bottom: 15px; /* Расстояние между пунктами списка */
+}
+/* Стили для контейнера dropdown */
+/* Стили для dropdown (выпадающего списка) */
+/* Контейнер выпадающего меню */
+/* Контейнер выпадающего меню */
+/* Стили для dropdown */
+/* Обёртка для dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Стили всплывающего меню */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(20, 20, 20, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 136, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    min-width: 200px;
+    padding: 10px 0;
+    text-align: center;
+    backdrop-filter: blur(8px);
+}
+
+/* Эффект при наведении */
+.dropdown:hover .dropdown-menu,
+.dropdown-menu:hover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Стили ссылок */
+.dropdown-menu a {
+    display: block;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* Анимация выделения */
+.dropdown-menu a:hover {
+    background: linear-gradient(90deg, rgba(255, 136, 0, 0.3), rgba(255, 102, 0, 0.6));
+    color: #ff9800;
+    border-radius: 6px;
+}
+.hero-image {
+    position: absolute;
+    top: 80px; /* Подними ближе к навигации (меняй значение при необходимости) */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    z-index: -1; /* Отправляет картинку на фон, если нужно */
+}
+
+@keyframes neonGlow {
+    0% {
+        box-shadow: 0px 0px 10px rgba(255, 122, 0, 0.8);
+    }
+    50% {
+        box-shadow: 0px 0px 20px rgba(255, 122, 0, 1);
+    }
+    100% {
+        box-shadow: 0px 0px 10px rgba(255, 122, 0, 0.8);
+    }
+}
+
+.neon-line {
+    width: 100%;
+    height: -100px;
+    background: linear-gradient(90deg, rgba(255, 122, 0, 1) 0%, rgba(255, 60, 0, 1) 100%);
+    border-radius: 5px;
+    animation: neonGlow 1.5s infinite alternate;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-top: -5px; /* Поднимаем линию чуть выше */
+}
+.hero-web {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: flex-end; /* Опускаем картинку вниз */
+    justify-content: center;
+    height: auto;
+}
+.hero-web img {
+    display: block;
+    width: 100%;
+    max-height: 400px; /* Ограничиваем высоту */
+    object-fit: cover;
+    margin-bottom: -5px; /* Убираем лишний отступ */
+}
+.web-info {
+    margin-top: 470px; /* Опусти текст чуть ниже, если нужно */
+}
+.web-dev-page .neon-line {
+    position: relative;
+    top: 484px; /* Поднимаем линию только для этой страницы */
+}
+.app-dev-page {
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.app-additional-content {
+    margin-bottom: -20px; /* Было 100px, уменьшил */
+    padding-bottom: 0;
+}
+
+.app-info {
+    padding-bottom: -20px;
+    margin-bottom: 0;
+}
+
+footer {
+    margin-top: 0;
+    padding-top: 0;
+}
+.app-dev-page .neon-line {
+    position: relative; /* Чтобы не фиксировалась */
+    top: 50px; /* Поднимаем выше */
+    margin: 0 auto;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, rgba(255,122,0,1) 0%, rgba(255,60,0,1) 100%);
+    box-shadow: 0 0 10px rgba(255, 87, 34, 0.7);
+}
+/* Анимация появления */
+.app-dev-page .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Когда секция в области видимости, она становится видимой */
+.app-dev-page .fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Анимация появления секций (только для app-development) */
+/* Анимация появления элементов при скролле (только для app-development) */
+.app-dev-page .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.app-dev-page .fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.legal-page {
+    margin-top: 10px; /* Поднимет блок ближе к навигации */
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+.legal-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Сделает контент по центру экрана */
+    background: #1a1a1a; /* Фон как на других страницах */
+    color: white;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.legal-container {
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+.legal-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #ff7a18, #ffb700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.legal-container p {
+    font-size: 1.2rem;
+    color: #ddd;
+}
+
+.legal-container ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.legal-container ul li a {
+    font-size: 1.2rem;
+    color: #ff7a18;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.legal-container ul li a:hover {
+    color: #ffb700;
+    text-decoration: underline;
+}
+
+/* Фикс футера */
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background: #111;
+    padding: 15px;
+}
+.legal-page {
+    min-height: calc(100vh - 100px); /* Убираем лишнее пространство */
+    padding-bottom: 50px; /* Чуть отодвигаем от футера */
+}
+
+footer {
+    position: relative; /* Меняем, если было absolute */
+    bottom: unset;
+    margin-top: 20px; /* Минимальный отступ */
+}
+/* Убираем лишние отступы */
+.legal-page {
+    min-height: calc(100vh - 120px); /* Высота экрана минус высота футера */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрируем контент */
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+
+/* Фиксируем фон, чтобы он не наслаивался */
+.terms-page {
+    position: relative;
+    min-height: 100vh; /* Минимальная высота, чтобы не было пробела */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрируем контент */
+    align-items: center;
+}
+
+/* Настраиваем фон */
+#backgroundCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Отправляем на задний план */
+}
+
+/* Контейнер с текстом */
+.terms-page main {
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    text-align: left;
+    line-height: 1.6;
+}
+
+/* Исправляем отступ заголовка */
+.terms-page main h1 {
+    margin-top: 20px;
+    text-align: center;
+}
+.terms-page {
+    position: relative;
+    z-index: 1; /* Поднимает текст и контент выше */
+}
+
+.terms-page #backgroundCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Canvas уходит под контент */
+}
+.terms-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 30px auto; /* Поднимаем блок выше */
+    padding: 25px;
+    background: rgba(15, 15, 15, 0.9); /* Более тёмный и прозрачный фон */
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    text-align: left; /* Прижимаем текст влево */
+}
+.navbar a {
+    color: white;
+    text-decoration: none; /* Убираем подчеркивание */
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #ffa500; /* Оранжевый при наведении */
+}
+/* Стили только для страницы Terms of Use */
+.terms-page {
+    display: flex;
+    justify-content: center; /* Центрируем контент */
+    padding-top: 80px; /* Уменьшаем отступ сверху */
+}
+
+/* Контейнер с текстом */
+.terms-content {
+    max-width: 800px; /* Обычная ширина */
+    width: 100%;
+    text-align: left; /* Выравнивание влево */
+    margin: 20px auto 0 auto; /* Уменьшил верхний отступ */
+    padding: 20px;
+}
+
+/* Заголовки тоже прижимаем влево */
+.terms-content h1,
+.terms-content h2,
+.terms-content h3 {
+    text-align: left;
+    margin-left: 0;
+}
+
+/* Убираем большой отступ у первого заголовка */
+.terms-content h1 {
+    margin-top: 0;
+}
+
+/* Поднимаем блок выше */
+.terms-page .terms-content {
+    margin-top: -50px; /* Убираем пространство */
+}
+
+/* Навигация: ссылки становятся оранжевыми только при наведении */
+.navbar a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+    color: orange;
+}
+/* Применяется ТОЛЬКО к Terms of Use */
+body.terms-page {
+    padding-top: 0; /* Убираем лишние отступы */
+}
+
+body.terms-page .terms-container {
+    margin-top: -50px; /* Поднимаем блок вверх */
+    padding-top: 20px; /* Добавляем небольшой отступ сверху */
+}
+
+/* Делаем заголовки и текст левыми */
+body.terms-page .terms-container h1,
+body.terms-page .terms-container h2,
+body.terms-page .terms-container h3,
+body.terms-page .terms-container p {
+    text-align: left;
+    margin-left: 0;
+    padding-left: 20px;
+}
+.custom-info {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: left;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.hero-custom {
+    position: relative;
+    text-align: center;
+}
+
+.hero-custom .hero-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.neon-line {
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, orange, red);
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.8);
+    margin-top: -4px;
+}
+.custom-info {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+/* Применяется только к странице Custom Solutions */
+.custom-page .hero-image {
+    position: relative; /* Снимаем абсолютное позиционирование */
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    display: block;
+    z-index: 1; /* Поднимаем изображение выше фона */
+    margin-bottom: 10px; /* Убираем лишний отступ */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Solution - Borderland</title>
+    <!-- Основные стили -->
+    <link rel="stylesheet" href="src/custom-solution.css">
+
+
+    <!-- Подключение скриптов -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script defer src="src/custom-solution.js"></script>
+</head>
+
+<body class="custom-page">
+    <canvas id="backgroundCanvas"></canvas>
+    <script defer src="src/background.js"></script>
+
+    <!-- Навигация -->
+    <header class="navbar">
+        <div class="logo"><a href="index.html">Borderland</a></div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">Services</a>
+                <div class="dropdown-menu">
+                    <a href="app-development.html">App Development</a>
+                    <a href="web-development.html">Web Development</a>
+                    <a href="custom-solution.html">Custom Solution</a>
+                </div>
+            </div>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="legal.html">Legal</a>
+        </nav>
+    </header>    
+    <!-- Фоновое изображение + неоновая линия -->
+    <section class="hero-custom">
+        <img src="src/images/custom-banner.jpg" alt="Custom Solutions" class="hero-image">
+        <div class="neon-line"></div>
+    </section>
+
+    <!-- Основной контент -->
+    <section class="custom-info">
+        <h2 class="gradient-text center-text">Tailored Solutions for Unique Challenges</h2>
+        <p><strong>At Borderland</strong>, we understand that off-the-shelf solutions often fail to meet the complex and
+            specific demands of modern businesses.
+            Our <strong>Custom Solutions</strong> service is designed to deliver tailor-made software and technology
+            solutions that align perfectly with your business goals.</p>
+
+        <h3 class="gradient-text">Why Choose a Custom Solution?</h3>
+        <p>Whether you need to optimize workflows, automate business processes, or develop a new digital product, our
+            solutions are built with **scalability, security, and efficiency** in mind.</p>
+
+        <ul>
+            <li><strong>Scalability:</strong> Solutions designed to evolve with your business needs.</li>
+            <li><strong>Automation:</strong> Streamlining operations to improve efficiency and reduce costs.</li>
+            <li><strong>Security:</strong> Implementing the highest security standards for data protection.</li>
+            <li><strong>Integration:</strong> Seamlessly connecting with your existing software ecosystem.</li>
+            <li><strong>Emerging Tech:</strong> AI, blockchain, IoT, and cloud-based solutions tailored to your needs.
+            </li>
+        </ul>
+
+        <h3 class="gradient-text">Industries We Serve</h3>
+        <p>We provide <strong>custom software development</strong> for a wide range of industries:</p>
+        <ul>
+            <li><strong>Finance & FinTech</strong> – High-security financial solutions and trading platforms.</li>
+            <li><strong>Healthcare</strong> – Advanced patient management and AI-powered diagnostics.</li>
+            <li><strong>Retail & E-Commerce</strong> – Personalized shopping experiences with AI-driven recommendations.
+            </li>
+            <li><strong>Logistics & Supply Chain</strong> – Real-time tracking and automation for supply chain
+                efficiency.</li>
+            <li><strong>Education & E-Learning</strong> – Interactive platforms and AI-driven tutoring solutions.</li>
+        </ul>
+
+        <h3 class="gradient-text">Our Approach</h3>
+        <p>We follow a structured yet agile development process:</p>
+        <ul>
+            <li><strong>Discovery & Strategy</strong> – Deep dive into your business challenges and defining a roadmap.
+            </li>
+            <li><strong>UI/UX Design</strong> – Designing intuitive and user-friendly interfaces.</li>
+            <li><strong>Development & Testing</strong> – Iterative development and rigorous quality assurance.</li>
+            <li><strong>Deployment & Support</strong> – Seamless integration with ongoing maintenance and updates.</li>
+        </ul>
+
+        <p>At <strong>Borderland</strong>, we don’t just develop software – we create <strong>strategic digital
+                solutions</strong> that drive efficiency, innovation, and business growth.</p>
+    </section>
+
+    <!-- Форма для контактов -->
+    <section class="contact-form-section">
+        <h2 class="gradient-text">Contact Us</h2>
+        <form class="contact-form">
+            <div class="form-group">
+                <input type="text" id="first-name" name="first-name" placeholder="First Name" required>
+                <input type="text" id="last-name" name="last-name" placeholder="Last Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" name="email" placeholder="Email Address" required>
+            </div>
+            <div class="form-group">
+                <textarea id="message" name="message" placeholder="Tell us about your project" rows="4"
+                    required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <p>&copy; 2024 Borderland. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

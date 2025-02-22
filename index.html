@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borderland - IT Solutions</title>
+    <link rel="stylesheet" href="src/styles.css">
+    <script defer src="src/main.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="background">
+        <canvas id="bgCanvas"></canvas>
+    </div>
+
+    <header class="navbar">
+        <div class="logo">Borderland</div>
+        <nav id="nav-menu">
+            <a href="#home">Home</a>
+            <div class="dropdown">
+                <a href="#services" id="services-link">Services</a> <!-- Добавил id -->
+                <div class="dropdown-menu">
+                    <a href="app-development.html">App Development</a>
+                    <a href="web-development.html">Web Development</a>
+                    <a href="custom-solution.html">Custom Solution</a>
+                </div>
+            </div>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+            <a href="legal.html" id="legal-btn">Legal</a>
+        </nav>
+        <div class="burger-menu" id="burger-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>    
+
+
+    <section class="hero">
+        <h1 class="typing-text">&nbsp;</h1>
+        <p>Innovative IT solutions to scale your business.</p>
+        <a href="#services" class="cta-button">Get Started</a>
+    </section>
+
+    <section id="services" class="services">
+        <h2 id="services-title" class="glitch">Our Services</h2>
+        <div class="service-cards">
+
+            <!-- ✅ App Development -->
+            <div class="service app-development" data-link="app-development.html">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>App Development</h3>
+                <p>We craft high-performance mobile applications.</p>
+
+                <div class="popup">
+                    <img src="src/images/app-preview.png" alt="Mobile Apps">
+                    <p>Custom-designed mobile apps <br> for iOS & Android.</p>
+                </div>
+            </div>
+
+            <!-- ✅ Web Development -->
+            <div class="service web-development" data-link="web-development.html">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Web Development</h3>
+                <p>Modern and responsive web applications.</p>
+
+                <div class="popup">
+                    <img src="src/images/web-preview.png" alt="Web Development">
+                    <p>Cutting-edge web solutions for your business.</p>
+                </div>
+            </div>
+
+            <!-- ✅ Custom Solutions -->
+            <div class="service custom-solutions" data-link="custom-solution.html">
+                <i class="fas fa-cogs"></i>
+                <h3>Custom Solutions</h3>
+                <p>Tailor-made software solutions for your needs.</p>
+
+                <div class="popup">
+                    <img src="src/images/custom-preview.png" alt="Custom Solutions">
+                    <p>Specialized IT solutions <br> for complex business needs.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about" class="about fade-in">
+        <div class="about-content">
+            <h2 class="neon-text">About Us</h2>
+            <p>At <strong>Borderland</strong>, we create cutting-edge mobile applications and digital solutions tailored
+                for businesses of all sizes.</p>
+            <p>Our team of experts combines innovation, strategy, and technology to drive success and empower digital
+                transformation.</p>
+            <p>From startups to enterprises, we deliver high-performance solutions that push boundaries and set new
+                industry standards.</p>
+            <p class="animated-text">We build the future of mobile development.</p>
+        </div>
+        <div class="about-visual">
+            <div class="animated-box"></div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>Have a project in mind? Fill out the form below and we’ll get back to you!</p>
+        <form action="mailto:contact@borderland.com" method="post" enctype="text/plain">
+            <div class="form-group">
+                <label for="company-name">Company Name</label>
+                <input type="text" id="company-name" name="company-name" placeholder="Enter your company name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="industry">Industry</label>
+                <input type="text" id="industry" name="industry" placeholder="What does your company do?" required>
+            </div>
+
+            <div class="form-group">
+                <label for="interest">What Are You Interested In?</label>
+                <select id="interest" name="interest" required>
+                    <option value="" disabled selected>Select a service</option>
+                    <option value="web-development">Web Development</option>
+                    <option value="app-development">App Development</option>
+                    <option value="custom-solutions">Custom Solutions</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Tell us more about your project..."
+                    required></textarea>
+            </div>
+
+            <button type="submit" class="cta-button">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Borderland. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

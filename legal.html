@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal – Borderland</title>
+    <link rel="stylesheet" href="src/styles.css">
+</head>
+
+<body class="legal-page">
+    <header class="navbar">
+        <div class="logo"><a href="index.html">Borderland</a></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="#services">Services</a>
+                <div class="dropdown-menu">
+                    <a href="app-development.html">App Development</a>
+                    <a href="web-development.html">Web Development</a>
+                    <a href="custom-solution.html">Custom Solution</a>
+                </div>
+            </div>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="legal.html">Legal</a>
+        </nav>
+    </header>
+
+    <main class="legal-container">
+        <h1>Legal Information</h1>
+        <p>Select an option to view our policies:</p>
+        <ul>
+            <li><a href="privacy-policy.html">Read Privacy Policy</a></li>
+            <li><a href="terms-of-use.html">Read Terms of Use</a></li>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Borderland. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const footers = document.querySelectorAll("footer");
+            if (footers.length > 1) {
+                footers[0].remove(); // Удаляет первый лишний футер
+            }
+        });
+    </script>
+</body>
+</html>

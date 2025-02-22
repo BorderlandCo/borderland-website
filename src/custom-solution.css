@@ -1,0 +1,409 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body.custom-page {
+    background: #1a1a1a;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Фоновые анимации */
+#backgroundCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* --- НАВИГАЦИОННАЯ ПАНЕЛЬ --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(26, 26, 26, 0.9);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar .logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 15px;
+}
+
+.navbar nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 8px 15px;
+    transition: color 0.3s ease;
+}
+
+.navbar nav a:hover {
+    color: #ff9800;
+}
+
+/* --- ГЛАВНОЕ ИЗОБРАЖЕНИЕ И НЕОНОВАЯ ЛИНИЯ --- */
+.hero-custom {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    margin-top: 80px; /* Сдвигаем вниз, чтобы не перекрывалось navbar'ом */
+}
+
+.hero-custom .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    z-index: 0; /* Фон, но не поверх navbar */
+}
+
+@keyframes neonGlow {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 122, 0, 0.8), 0 0 10px rgba(255, 60, 0, 0.9);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(255, 122, 0, 1), 0 0 30px rgba(255, 60, 0, 1);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 122, 0, 0.8), 0 0 10px rgba(255, 60, 0, 0.9);
+    }
+}
+
+/* Стили для неоновой линии */
+.neon-line {
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, rgba(255, 122, 0, 1) 0%, rgba(255, 60, 0, 1) 100%);
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: neonGlow 1.5s infinite alternate;
+}
+.custom-info h2,
+.custom-info h3 {
+    text-align: left; /* Теперь заголовки будут слева */
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, orange, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.custom-info p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+.custom-info ul {
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+.custom-info ul li {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #ff9800;
+}
+
+/* --- СЕКЦИЯ CONTACT US --- */
+.contact-form-section {
+    max-width: 600px;
+    margin: 80px auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.contact-form-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #ff7a18, #ffb700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    gap: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+}
+
+textarea {
+    resize: none;
+    height: 120px;
+}
+
+.submit-btn {
+    background: linear-gradient(90deg, #ff7a18, #ffb700);
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(90deg, #ffb700, #ff7a18);
+}
+
+@media (max-width: 768px) {
+    .form-group {
+        flex-direction: column;
+    }
+}
+
+/* --- ФУТЕР --- */
+footer {
+    padding: 20px;
+    background: #111;
+    text-align: center;
+    margin-top: 50px;
+}
+/* Навигационная панель */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: rgba(26, 26, 26, 0.9);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Логотип */
+.navbar .logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+/* Навигационные ссылки */
+.navbar nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2rem;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Эффект при наведении */
+.navbar nav a:hover {
+    color: #ff9800;
+}
+
+/* Стили для выпадающего меню */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Контейнер всплывающего меню */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(20, 20, 20, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 136, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    min-width: 200px;
+    padding: 10px 0;
+    text-align: center;
+    backdrop-filter: blur(8px);
+}
+
+/* Показываем меню при наведении */
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Стили ссылок в меню */
+.dropdown-menu a {
+    display: block;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* Подсветка при наведении */
+.dropdown-menu a:hover {
+    background: linear-gradient(90deg, rgba(255, 136, 0, 0.3), rgba(255, 102, 0, 0.6));
+    color: #ff9800;
+    border-radius: 6px;
+}
+/* --- НАВИГАЦИОННАЯ ПАНЕЛЬ --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(26, 26, 26, 0.9);
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* Контейнер для ссылок */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Навигационные ссылки */
+.navbar nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 8px 15px;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Эффект при наведении */
+.navbar nav a:hover {
+    color: #ff9800;
+}
+
+/* --- СТИЛИ ДЛЯ ВЫПАДАЮЩЕГО МЕНЮ --- */
+.dropdown {
+    position: relative;
+}
+
+.dropbtn {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.dropbtn:hover {
+    color: #ff9800;
+}
+
+/* Контейнер всплывающего меню */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(20, 20, 20, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 136, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    min-width: 200px;
+    padding: 10px 0;
+    text-align: center;
+    backdrop-filter: blur(8px);
+}
+
+/* Показываем меню при наведении */
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Стили ссылок в меню */
+.dropdown-menu a {
+    display: block;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* Подсветка при наведении */
+.dropdown-menu a:hover {
+    background: linear-gradient(90deg, rgba(255, 136, 0, 0.3), rgba(255, 102, 0, 0.6));
+    color: #ff9800;
+    border-radius: 6px;
+}
+.custom-info {
+    max-width: 1200px; /* Было 900px – теперь шире */
+    margin: 80px auto 50px;
+    padding: 40px 40px; /* Было 20px – теперь контент шире */
+    text-align: left;
+}
+
+.custom-info p,
+.custom-info ul {
+    text-align: left; /* Выровнять все текстовые блоки по левому краю */
+}
+.custom-info {
+    opacity: 0; /* Скрываем блок изначально */
+    transform: translateY(50px); /* Смещаем вниз */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.custom-info.show {
+    opacity: 1;
+    transform: translateY(0); /* Поднимаем блок в исходное положение */
+}
